@@ -2,7 +2,7 @@
 
 ## How to create Lambda function 
 - run `composer update`
-- run `zip -r runtime.zip runtime/*`
+- run `zip -j -r runtime.zip runtime/*`
 - run `zip -r function.zip src/* vendor/*`
 - go to AWS console and create lambda function. Choose "custom runtime".
 - upload `function.zip` as "Function code".
