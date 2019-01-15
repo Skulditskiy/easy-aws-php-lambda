@@ -21,3 +21,12 @@
 - https://github.com/pagnihotry/PHP-Lambda-Runtime
 - https://aws.amazon.com/blogs/apn/aws-lambda-custom-runtime-for-php-a-practical-example/
 - http://p.agnihotry.com/post/php_aws_lambda_runtime/
+
+## How it is all works together
+Your custom runtime is an archive which must contain `bootstrap` file. From that file you can access to other files you included in your custom runtime package. We don't need anything except php binary and some PHP script which will be our broker. 
+
+In runtime.zip AWS executes `bootstrap` file. It just proxies control to `runtime.php` with using our php binary.
+
+In `runtime.php` we are waiting for next call to our lambda function and when it happens executing our handler function. Also, at that point we have all dependencies and can pass to handler such things like API clients, Factories and other dependencies.
+
+In `index.php` could be more than one handler. You can create another Lambda function with handler `another.handler` and all you need to do is to create another function `another` in `index.php`
