@@ -1,3 +1,5 @@
+# Easiest way to start creating AWS Lambda functions with PHP
+
 ## How to create Lambda function 
 - run `composer update`
 - run `zip -r runtime.zip runtime/*`
@@ -14,3 +16,8 @@
 - "cold run" for that example takes ~30ms. "warm" - less than 2ms. 
 - seems that "classic" PHP frameworks does not really fit into that model: neither HTTP, nor console. However for both cases you can still use them (manually creating Request and/or Console Command from payload of function)
 - In that example you can see example DI container, feel free to use yours (from Slim, for example). However, keep in mind that all created members of DI will be kept between execution. 
+
+## Other useful tutorials:
+- https://github.com/pagnihotry/PHP-Lambda-Runtime
+- https://aws.amazon.com/blogs/apn/aws-lambda-custom-runtime-for-php-a-practical-example/
+- http://p.agnihotry.com/post/php_aws_lambda_runtime/
